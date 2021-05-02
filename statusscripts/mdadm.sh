@@ -3,4 +3,4 @@
 # For further info send an e-mail to Ma_Sys.ma@web.de.
 
 cat /proc/mdstat
-grep -qF _ /proc/mdstat
+! grep -qF _ /proc/mdstat
