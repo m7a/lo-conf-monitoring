@@ -3,6 +3,6 @@
 # Copyright (c) 2021 Ma_Sys.ma.
 # For further info send an e-mail to Ma_Sys.ma@web.de.
 
-smartoutput="$(LANG=en_US.UTF-8 smarctl -H -A "$@")"
+smartoutput="$(LANG=en_US.UTF-8 smartctl -H -A "$@")"
 printf '%s\n' "$smartoutput"
 printf '%s\n' "$smartoutput" | grep -qF ": PASSED"
