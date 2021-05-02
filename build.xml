@@ -8,9 +8,10 @@
 <property name="mdpc.recommends" value="monit, monitorix"/>
 <property name="mdpc.descrl">
  Provides configuration files and useful scripts to be used in conjunction with
- monit and enables them automatically.
+ Monit and Monitorix and enables them automatically.
  .
- Also provides Ma_Sys.ma default configuration for monitorix.
+ http://127.0.0.1:2812 -- monit (needs to be enabled explicitly!)
+ http://127.0.0.1:2813 -- monitorix (autorun)
 </property>
 
 <property name="mdpc.file.install">

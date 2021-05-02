@@ -4,4 +4,4 @@
 
 dockerinfo="$(LANG=en_US.UTF-8 docker ps)"
 printf '%s\n' "$dockerinfo"
-printf '%s\n' "$dockerinfo" | ! grep -qF "unhealthy"
+printf '%s\n' "$dockerinfo" | { ! grep -qF "unhealthy"; }

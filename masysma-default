@@ -1,6 +1,15 @@
 # Ma_Sys.ma Monit default Configuration 1.0.0, Copyright (c) 2021 Ma_Sys.ma.
 # For further info send an e-mail to Ma_Sys.ma@web.de.
 
+#-------------------------------------------------------------[ Check System ]--
+
+check system $HOST
+	if loadavg (1min) per core > 2 for 5 cycles then alert
+	if loadavg (5min) per core > 1.5 for 10 cycles then alert
+	if cpu usage > 95% for 10 cycles then alert
+	if memory usage > 90% then alert
+	if swap usage > 40% then alert
+
 #----------------------------------------------------------[ Root Filesystem ]--
 
 check device root with path /

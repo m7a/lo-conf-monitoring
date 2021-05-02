@@ -1,3 +1,9 @@
+mdvl-conf-monitoring (1.0.6) stable; urgency=medium
+
+  * Fix syntax in status script. Add system monitoring section.
+
+ -- Linux-Fan, Ma_Sys.ma <Ma_Sys.ma@web.de>  Sun, 02 May 2021 23:39:12 +0200
+
 mdvl-conf-monitoring (1.0.5) stable; urgency=medium
 
   * Fix permissions of status scripts.

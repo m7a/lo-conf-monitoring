@@ -4,4 +4,4 @@
 
 zpoolstatus="$(LANG=en_US.UTF-8 zpool status)"
 printf '%s\n' "$zpoolstatus"
-printf '%s\n' "$zpoolstatus" | ! grep -qE "(DEGRADED|UNAVAIL)"
+printf '%s\n' "$zpoolstatus" | { ! grep -qE "(DEGRADED|UNAVAIL)"; }
