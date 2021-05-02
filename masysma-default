@@ -108,8 +108,7 @@ check process docker with pidfile /var/run/docker.pid
 	if 5 restarts with 5 cycles then timeout
 	depend docker_bin
 
-check program docker_status with path /usr/share/mdvl-conf-monitoring/statusscripts/docker.sh
-	with timeout 60 seconds
+check program docker_status with path /usr/share/mdvl-conf-monitoring/statusscripts/docker.sh timeout 60 seconds
 	every 3 cycles
 	if status != 0 then alert
 
