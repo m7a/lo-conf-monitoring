@@ -137,7 +137,7 @@ check process monitorix with pidfile /run/monitorix.pid
 	group monitorix
 	start program = "/usr/bin/systemctl start monitorix.service"
 	stop  program = "/usr/bin/systemctl stop monitorix.service"
-	if failed host localhost port 2813 with proto http then restart
+	if failed host localhost port 2813 with protocol http request "/monitorix" then restart
 	if 5 restarts with 5 cycles then timeout
 	depend monitorix_bin
 	depend monitorix_conf
