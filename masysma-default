@@ -1,0 +1,138 @@
+# Ma_Sys.ma Monit default Configuration 1.0.0, Copyright (c) 2021 Ma_Sys.ma.
+# For further info send an e-mail to Ma_Sys.ma@web.de.
+
+#----------------------------------------------------------[ Root Filesystem ]--
+
+check device root with path /
+	if SPACE usage > 90% then alert
+
+#------------------------------------------------------------------[ Daemons ]--
+
+# These have been derived from the Debian-provided templates for the
+# respective services.
+
+# -- atd --
+check process atd with pidfile "/var/run/atd.pid"
+	group system
+	group atd
+	start program = "/usr/sbin/systemctl start atd.service"
+	stop  program = "/usr/sbin/systemctl stop atd.service"
+	if 5 restarts within 5 cycles then timeout
+	depends on atd_bin
+
+check file atd_bin with path "/usr/sbin/atd"
+	group atd
+	include /etc/monit/templates/rootbin
+
+# -- cron --
+check process crond with pidfile /var/run/crond.pid
+	group system
+	group crond
+	start program = "/usr/bin/systemctl start cron.service"
+	stop  program = "/usr/bin/systemctl stop cron.service"
+	if 5 restarts with 5 cycles then timeout
+	depend cron_bin
+	depend cron_spool
+
+check file cron_bin with path /usr/sbin/cron
+	group crond
+	include /etc/monit/templates/rootbin
+
+check directory cron_spool with path /var/spool/cron/crontabs
+	group crond
+	if failed permission 1730 then unmonitor
+	if failed uid root        then unmonitor
+	if failed gid crontab     then unmonitor
+
+# -- sshd --
+check process sshd matching 'sshd'
+	group system
+	group sshd
+	start program = "/usr/bin/systemctl start openssh-server.service"
+	stop  program = "/usr/bin/systemctl stop openssh-server.service"
+	if failed host localhost port 22 with proto ssh then restart
+	if 5 restarts with 5 cycles then timeout
+	depend on sshd_bin
+	depend on sftp_bin
+	depend on sshd_rc
+	depend on sshd_rsa_key
+
+check file sshd_bin with path /usr/sbin/sshd
+	group sshd
+	include /etc/monit/templates/rootbin
+
+check file sftp_bin with path /usr/lib/openssh/sftp-server
+	group sshd
+	include /etc/monit/templates/rootbin
+
+check file sshd_rsa_key with path /etc/ssh/ssh_host_rsa_key
+	group sshd
+	include /etc/monit/templates/rootstrict
+
+check file sshd_ecdsa_key with path /etc/ssh/ssh_host_ecdsa_key
+	group sshd
+	include /etc/monit/templates/rootstrict
+
+check file sshd_ed25519_key with path /etc/ssh/ssh_host_ed25519_key
+	group sshd
+	include /etc/monit/templates/rootstrict
+
+check file sshd_rc with path /etc/ssh/sshd_config
+	group sshd
+	include /etc/monit/templates/rootrc
+
+# -- ntpd --
+check process ntpd with pidfile /var/run/ntpd.pid
+	group system
+	group ntpd
+	start program = "/usr/bin/systemctl start ntp.service"
+	stop  program = "/usr/bin/systemctl stop ntp.service"
+	if 5 restarts with 5 cycles then timeout
+	depend ntp_bin
+	depend ntp_conf
+
+check file ntp_bin with path /usr/sbin/ntpd
+	group ntpd
+	include /etc/monit/templates/rootbin
+
+check file ntp_conf with path /etc/ntp.conf
+	group ntpd
+	include /etc/monit/templates/rootrc
+
+# -- docker --
+check process docker with pidfile /var/run/docker.pid
+	gorup system
+	group docker
+	start program = "/usr/bin/systemctl start docker.service"
+	stop  program = "/usr/bin/systemctl stop docker.service"
+	if 5 restarts with 5 cycles then timeout
+	depend docker_bin
+
+check program docker_status with path /usr/share/mdvl-conf-monitoring/statusscripts/docker.sh
+	every 3 cycles
+	with timeout 60 seconds
+	if status != 0 then alert
+
+check file docker_bin with path /usr/bin/docker
+	group docker
+	include /etc/monit/templates/rootbin
+
+# -- monitorix --
+# TL;DR: We install monitorix _and_ monit in order to have historic graphs as
+#        well as a quick status overview page with failure reports.
+check process monitorix with pidfile /run/monitorix.pid
+	group system
+	group monitorix
+	start program = "/usr/bin/systemctl start monitorix.service"
+	stop  program = "/usr/bin/systemctl stop monitorix.service"
+	if 5 restarts with 5 cycles then timeout
+	depend monitorix_bin
+	depend monitorix_conf
+
+check file monitorix_bin with path /usr/bin/monitorix
+	group monitorix
+	include /etc/monit/templates/rootbin
+
+check file monitorix_conf with path /etc/monitorix/monitorix.conf
+	group monitorix
+	include /etc/monit/templates/rootrc
