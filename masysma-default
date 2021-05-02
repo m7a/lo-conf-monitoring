@@ -109,8 +109,8 @@ check process docker with pidfile /var/run/docker.pid
 	depend docker_bin
 
 check program docker_status with path /usr/share/mdvl-conf-monitoring/statusscripts/docker.sh
-	every 3 cycles
 	with timeout 60 seconds
+	every 3 cycles
 	if status != 0 then alert
 
 check file docker_bin with path /usr/bin/docker
