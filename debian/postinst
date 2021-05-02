@@ -1,0 +1,5 @@
+#!/bin/sh -e
+
+#DEBHELPER#
+
+chmod +x /usr/share/mdvl-conf-monitoring/statusscripts/*
