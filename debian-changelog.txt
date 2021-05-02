@@ -1,3 +1,9 @@
+mdvl-conf-monitoring (1.0.2) stable; urgency=medium
+
+  * Fix spelling gorup -> group.
+
+ -- Linux-Fan, Ma_Sys.ma <Ma_Sys.ma@web.de>  Sun, 02 May 2021 23:24:10 +0200
+
 mdvl-conf-monitoring (1.0.1) stable; urgency=medium
 
   * Fix path to systemctl.

@@ -101,7 +101,7 @@ check file ntp_conf with path /etc/ntp.conf
 
 # -- docker --
 check process docker with pidfile /var/run/docker.pid
-	gorup system
+	group system
 	group docker
 	start program = "/usr/bin/systemctl start docker.service"
 	stop  program = "/usr/bin/systemctl stop docker.service"
