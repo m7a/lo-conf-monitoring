@@ -61,7 +61,7 @@ be need to reconstruct the monitoring again :)
 Links: <https://atoptool.nl/>,
 [Debian-Package atop](https://packages.debian.org/buster/atop)
 
-![Atop screenshot with 100% CPU load caused by a Java process](system_monitoring_with_monit_and_monitorix/atop.png)
+![Atop screenshot with 100% CPU load caused by a Java process](system_monitoring_with_monit_and_monitorix_att/atop.png)
 
 Atop is one of my favourite live monitoring tools for console usage on Linux.
 Atop displays the activity on a system in a seemingly intimidating text-based
@@ -105,7 +105,7 @@ set it up for monitoring this time as it has some rough edges for that use case.
 Links: <https://nicolargo.github.com/glances/>,
 [Debian-Package glances](https://packages.debian.org/buster/glances)
 
-![Glances screenschot with 100% CPU load and small window](system_monitoring_with_monit_and_monitorix/glances.png)
+![Glances screenschot with 100% CPU load and small window](system_monitoring_with_monit_and_monitorix_att/glances.png)
 
 Glances serves a similar purpose to Atop but is aimed at larger screen spaces.
 It does not monitor I/O as good as atop, but adds information on sensor readings
@@ -123,7 +123,7 @@ again complicate things too much.
 Links: <https://github.com/netdata/netdata>,
 [Debian-Package netdata](https://packages.debian.org/buster/netdata)
 
-![Netdata screenshot](system_monitoring_with_monit_and_monitorix/netdata.png)
+![Netdata screenshot](system_monitoring_with_monit_and_monitorix_att/netdata.png)
 
 Netdata graphs a huge number of metrics in a web interface (under port 19999).
 Similar to glances, Netdata can send metrics to an external server. Similar to
@@ -159,7 +159,7 @@ below.
 Links: <https://github.com/phpsysinfo/phpsysinfo>,
 [Debian Package phpsysinfo](https://packages.debian.org/bullseye/phpsysinfo)
 
-![Screenshot of phpSysInfo running in a Docker container](system_monitoring_with_monit_and_monitorix/phpsysinfo.png)
+![Screenshot of phpSysInfo running in a Docker container](system_monitoring_with_monit_and_monitorix_att/phpsysinfo.png)
 
 phpSysInfo displays the system status in a tabular fashion. It focuses on the
 machine's properties combined with memory and file system usage. While it
@@ -198,7 +198,7 @@ As no single tool seemed to fit all the needs, two good ones were combined:
 
 ## Monit
 
-![Monit running on the Ma_Sys.ma main system](system_monitoring_with_monit_and_monitorix/monit.png)
+![Monit running on the Ma_Sys.ma main system](system_monitoring_with_monit_and_monitorix_att/monit.png)
 
 Monit creates a _status_ page that quickly allows one to identify if anything
 is wrong with the running system. If the system is working normally, all
@@ -311,7 +311,7 @@ password is `123456`) and the receiver to be `admin@example.com`.
 
 ## Monitorix
 
-![Monitorix running on the Ma_Sys.ma main system, inter-day graphs for System Load Average](system_monitoring_with_monit_and_monitorix/monitorix.png)
+![Monitorix running on the Ma_Sys.ma main system, inter-day graphs for System Load Average](system_monitoring_with_monit_and_monitorix_att/monitorix.png)
 
 Monitorix is responsible for creating graphs and showing historic data. It
 does not display any text information, but provides a large number of graphs
@@ -326,7 +326,7 @@ override the defaults from `70-masysma-default.conf`.
 
 A very nice property of Monitorix' approach to the graphis is their simplicity:
 
- * Data is stored in a fixed-size structur. Hence, it is impossible for the
+ * Data is stored in a fixed-size structure. Hence, it is impossible for the
    measurement values to eat up disk space or degrade processing performance
    from their growth.
  * Graphis are created as image files on a static HTML page.
