@@ -7,7 +7,7 @@ lang: en-US
 author: ["Linux-Fan, Ma_Sys.ma (Ma_Sys.ma@web.de)"]
 keywords: ["monitoring", "linux"]
 x-masysma-version: 1.0.0
-x-masysma-repository: https://www.github.com/m7a/lp-conf-monitoring
+x-masysma-repository: https://www.github.com/m7a/lo-conf-monitoring
 x-masysma-website: https://masysma.lima-city.de/37/system_monitoring_with_monit_and_monitorix.xhtml
 x-masysma-owned: 1
 x-masysma-copyright: |
