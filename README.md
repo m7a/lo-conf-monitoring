@@ -6,7 +6,7 @@ date: 2021/05/03 22:43:10
 lang: en-US
 author: ["Linux-Fan, Ma_Sys.ma (Ma_Sys.ma@web.de)"]
 keywords: ["monitoring", "linux"]
-x-masysma-version: 1.0.0
+x-masysma-version: 1.0.1
 x-masysma-repository: https://www.github.com/m7a/lo-conf-monitoring
 x-masysma-website: https://masysma.lima-city.de/37/system_monitoring_with_monit_and_monitorix.xhtml
 x-masysma-owned: 1
@@ -59,7 +59,7 @@ be need to reconstruct the monitoring again :)
 ## Atop
 
 Links: <https://atoptool.nl/>,
-[Debian-Package atop](https://packages.debian.org/buster/atop)
+[Debian package atop](https://packages.debian.org/buster/atop)
 
 ![Atop screenshot with 100% CPU load caused by a Java process](system_monitoring_with_monit_and_monitorix_att/atop.png)
 
@@ -102,8 +102,8 @@ set it up for monitoring this time as it has some rough edges for that use case.
 
 ## Glances
 
-Links: <https://nicolargo.github.com/glances/>,
-[Debian-Package glances](https://packages.debian.org/buster/glances)
+Links: <https://github.com/nicolargo/glances/>,
+[Debian package glances](https://packages.debian.org/buster/glances)
 
 ![Glances screenschot with 100% CPU load and small window](system_monitoring_with_monit_and_monitorix_att/glances.png)
 
@@ -121,7 +121,7 @@ again complicate things too much.
 ## Netdata
 
 Links: <https://github.com/netdata/netdata>,
-[Debian-Package netdata](https://packages.debian.org/buster/netdata)
+[Debian package netdata](https://packages.debian.org/buster/netdata)
 
 ![Netdata screenshot](system_monitoring_with_monit_and_monitorix_att/netdata.png)
 
@@ -157,7 +157,7 @@ below.
 ## phpSysInfo
 
 Links: <https://github.com/phpsysinfo/phpsysinfo>,
-[Debian Package phpsysinfo](https://packages.debian.org/bullseye/phpsysinfo)
+[Debian package phpsysinfo](https://packages.debian.org/bullseye/phpsysinfo)
 
 ![Screenshot of phpSysInfo running in a Docker container](system_monitoring_with_monit_and_monitorix_att/phpsysinfo.png)
 
@@ -197,6 +197,9 @@ As no single tool seemed to fit all the needs, two good ones were combined:
    <http://127.0.0.1:2813/monitorix>
 
 ## Monit
+
+Links: <https://mmonit.com/monit/>,
+[Debian package monit](https://packages.debian.org/bullseye/monit)
 
 ![Monit running on the Ma_Sys.ma main system](system_monitoring_with_monit_and_monitorix_att/monit.png)
 
@@ -310,6 +313,9 @@ This settings configure the sender to be `machine@example.com` (whose mail
 password is `123456`) and the receiver to be `admin@example.com`.
 
 ## Monitorix
+
+Links: <https://www.monitorix.org/>,
+[Debian package monitorix](https://packages.debian.org/buster/monitorix)
 
 ![Monitorix running on the Ma_Sys.ma main system, inter-day graphs for System Load Average](system_monitoring_with_monit_and_monitorix_att/monitorix.png)
 
