@@ -105,7 +105,7 @@ set it up for monitoring this time as it has some rough edges for that use case.
 Links: <https://github.com/nicolargo/glances/>,
 [Debian package glances](https://packages.debian.org/buster/glances)
 
-![Glances screenschot with 100% CPU load and small window](system_monitoring_with_monit_and_monitorix_att/glances.png)
+![Glances screenshot with 100% CPU load and small window](system_monitoring_with_monit_and_monitorix_att/glances.png)
 
 Glances serves a similar purpose to Atop but is aimed at larger screen spaces.
 It does not monitor I/O as good as atop, but adds information on sensor readings
@@ -235,7 +235,7 @@ Monit runs a custom script to check the RAID status. It is “dead simple” and
 needs only two lines of code:
 
 ~~~
-#!/bin/she -eu
+#!/bin/sh -eu
 # see statusscripts/mdadm.sh
 cat /proc/mdstat
 ! grep -qF _ /proc/mdstat
@@ -286,7 +286,7 @@ printf '%s\n' "$smartoutput" | grep -qF ": PASSED"
 ~~~
 
 Again, its the same pattern where the output is printed and the return code
-indicates the success of the scripts execution. However, if you look a the
+indicates the success of the script's execution. However, if you look a the
 actual implementation in `statusscripts/smartctl.sh` you may notice there is
 a quirk to save the output of `smartctl` to a file. This is intended to be used
 in conjunction with MDVL package `mdvl-infobg` to display the S.M.A.R.T.
