@@ -5,7 +5,7 @@
 <property name="mdpc.section"    value="admin"/>
 <property name="mdpc.arch"       value="all"/>
 <property name="mdpc.descrs"     value="Configuration and Scripts for Monit and Monitorix"/>
-<property name="mdpc.recommends" value="monit, monitorix"/>
+<property name="mdpc.recommends" value="monit, monitorix, zip"/>
 <property name="mdpc.descrl">
  Provides configuration files and useful scripts to be used in conjunction with
  Monit and Monitorix and enables them automatically.
@@ -16,14 +16,14 @@
 
 <property name="mdpc.file.install">
 70-masysma-default.conf /etc/monitorix/conf.d
+20-monit.sh /etc/logwatch-attachments.d
+21-monitorix.sh /etc/logwatch-attachments.d
 masysma-default /etc/monit/conf.d
 statusscripts /usr/share/mdvl-conf-monitoring
 </property>
 
 <!-- CI INTEGRATION -->
-<target name="package_triggered" depends="package">
-	<property name="masysma.ci.trigger" value="newver"/>
-</target>
+<target name="autoci" depends="autopackage"/>
 
 <!-- CONSTANT TPL IMPORT -->
 <property environment="env"/>

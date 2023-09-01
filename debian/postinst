@@ -2,4 +2,6 @@
 
 #DEBHELPER#
 
-chmod +x /usr/share/mdvl-conf-monitoring/statusscripts/*
+chmod +x /usr/share/mdvl-conf-monitoring/statusscripts/* \
+				/etc/logwatch-attachments.d/20-monit.sh \
+				/etc/logwatch-attachments.d/21-monitorix.sh
